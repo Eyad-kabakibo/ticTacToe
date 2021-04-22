@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-# Create your views here.
-#gi
+#Testing waiting winning approch
 gaming_list1 = []
 gaming_list2 = []
 gaming_list3 = []
