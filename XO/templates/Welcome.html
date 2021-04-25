@@ -2,16 +2,17 @@
   {% block title %}Welcome Tic Tac Toe Game{% endblock %}
 
   {% block body %}
-
+    <br><br><br>
     <div class="container">
-      <form>
+      <form action="{% url 'game' 9 %}" method="post">
+        {% csrf_token %}
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Player one </label>
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <label for="Player_one" class="form-label">Player one </label>
+          <input type="text" class="form-control" name = "Player_one"id="Player_one" >
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Player Two</label>
-          <input type="text" class="form-control" id="exampleInputPassword1">
+          <label for="Player_two" class="form-label">Player Two</label>
+          <input type="text" class="form-control" name = "Player_two"id="Player_two">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>

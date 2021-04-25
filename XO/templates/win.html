@@ -4,7 +4,7 @@
   {% block body %}
       <div class="container">
         <div class="jumbotron">
-          <h1 class="display-4">Player {{winner}} is winnig 	&#127881;	&#127881;</h1>
+          <h1 class="display-4">{{playe_win}}" {{winner}}" is winnig 	&#127881;	&#127881;</h1>
           <hr class="my-4">
           <a class="btn btn-primary btn-lg" href="#" role="button" id="restart_btn">Restart!</a>
         </div>
@@ -13,21 +13,21 @@
         <table>
         <tr>
           {% for element in game_list1 %}
-            <td><a href="{% url 'index' count|add:forloop.counter0 %}" id="{{count|add:forloop.counter0}}"></a>{{element}}</td>
+            <td><a href="{% url 'game' count|add:forloop.counter0 %}" id="{{count|add:forloop.counter0}}"></a>{{element}}</td>
           {% endfor %}
        </tr>
       {%endwith %}
       {% with count=3 %}
        <tr>
          {% for element in game_list2 %}
-           <td><a href="{% url 'index' count|add:forloop.counter0 %}" id="{{count|add:forloop.counter0}}"></a>{{element}}</td>
+           <td><a href="{% url 'game' count|add:forloop.counter0 %}" id="{{count|add:forloop.counter0}}"></a>{{element}}</td>
          {% endfor %}
       </tr>
       {%endwith %}
       {% with count=6 %}
        <tr>
          {% for element in game_list3 %}
-           <td><a href="{% url 'index' count|add:forloop.counter0 %}" id="{{count|add:forloop.counter0}}"></a>{{element}}</td>
+           <td><a href="{% url 'game' count|add:forloop.counter0 %}" id="{{count|add:forloop.counter0}}"></a>{{element}}</td>
          {% endfor %}
       </tr>
       {%endwith %}

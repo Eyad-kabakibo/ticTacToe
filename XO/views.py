@@ -3,8 +3,7 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.urls import reverse
 import time
 
-# Create your views here.
-#gi
+
 gaming_list1 = []
 gaming_list2 = []
 gaming_list3 = []
@@ -14,16 +13,17 @@ for element in range(3):
     gaming_list2.append('-')
     gaming_list3.append('-')
 
+
+def index(request):
+    return render(request, "Welcome.html")
+
 states = ' '
-def index(request, num):
+def game(request, num):
     #THere is delay in win
-    if(win()):
-        return render(request, "win.html",{
-            "game_list1":gaming_list1,
-            "game_list2":gaming_list2,
-            "game_list3":gaming_list3,
-            "winner":win
-        })
+
+    if request.method == "POST":
+        Player_one = request.POST['Player_one']
+        Player_two = request.POST['Player_two']
     global states
     if num < 3:
         if  gaming_list1[num] == '-':
@@ -49,6 +49,19 @@ def index(request, num):
             else:
                 gaming_list3[num-6]= 'O'
                 states = 'O'
+    wins = win()
+    if(wins):
+        if wins == 'X':
+            playe_win = "player one "
+        else:
+            playe_win = "player two "
+        return render(request, "win.html",{
+            "game_list1":gaming_list1,
+            "game_list2":gaming_list2,
+            "game_list3":gaming_list3,
+            "winner":win,
+            "playe_win":playe_win.capitalize(),
+        })
 
 
     return render(request, "tic.html",{

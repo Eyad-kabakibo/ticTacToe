@@ -13,21 +13,21 @@
         <table>
         <tr>
           {% for element in game_list1 %}
-            <td><a href="{% url 'index' count|add:forloop.counter0 %}" id="{{count|add:forloop.counter0}}">{{element}}</a></td>
+            <td><a href="{% url 'game' count|add:forloop.counter0 %}" id="{{count|add:forloop.counter0}}">{{element}}</a></td>
           {% endfor %}
        </tr>
       {%endwith %}
       {% with count=3 %}
        <tr>
          {% for element in game_list2 %}
-           <td><a href="{% url 'index' count|add:forloop.counter0 %}" id="{{count|add:forloop.counter0}}">{{element}}</a></td>
+           <td><a href="{% url 'game' count|add:forloop.counter0 %}" id="{{count|add:forloop.counter0}}">{{element}}</a></td>
          {% endfor %}
       </tr>
       {%endwith %}
       {% with count=6 %}
        <tr>
          {% for element in game_list3 %}
-           <td><a href="{% url 'index' count|add:forloop.counter0 %}" id="{{count|add:forloop.counter0}}">{{element}}</a></td>
+           <td><a href="{% url 'game' count|add:forloop.counter0 %}" id="{{count|add:forloop.counter0}}">{{element}}</a></td>
          {% endfor %}
       </tr>
       {%endwith %}
