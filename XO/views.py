@@ -87,3 +87,12 @@ def win():
         win = game_list[2]
 
     return win
+
+
+def tie():
+    game_list = gaming_list1+gaming_list2+gaming_list3
+    for i in game_list:
+        if i == ' ':
+            return False
+    if win() == False:
+        return True
