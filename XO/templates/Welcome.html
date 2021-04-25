@@ -3,7 +3,10 @@
 
   {% block body %}
     <br><br><br>
+
     <div class="container">
+      <h1>Welcome Tic Tac Toe Game</h1>
+      <br>
       <form action="{% url 'game' 9 %}" method="post">
         {% csrf_token %}
         <div class="mb-3">
