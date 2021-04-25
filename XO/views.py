@@ -16,7 +16,7 @@ for element in range(3):
 
 states = ' '
 def index(request, num):
-    #lma agy anady 3la el index mn el code adeha ay rakm fo2 el 9
+    #THere is delay in win
     if(win()):
         return render(request, "win.html",{
             "game_list1":gaming_list1,
