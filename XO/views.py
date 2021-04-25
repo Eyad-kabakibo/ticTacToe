@@ -3,18 +3,21 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.urls import reverse
 import time
 
-
 gaming_list1 = []
 gaming_list2 = []
 gaming_list3 = []
 
-for element in range(3):
-    gaming_list1.append('-')
-    gaming_list2.append('-')
-    gaming_list3.append('-')
-
-
 def index(request):
+    global gaming_list1
+    global gaming_list2
+    global gaming_list3
+    gaming_list1 = []
+    gaming_list2 = []
+    gaming_list3 = []
+    for element in range(3):
+        gaming_list1.append('-')
+        gaming_list2.append('-')
+        gaming_list3.append('-')
     return render(request, "Welcome.html")
 
 states = ' '
@@ -63,7 +66,12 @@ def game(request, num):
             "playe_win":playe_win.capitalize(),
         })
 
-
+    if tie():
+        return render(request, "tie.html",{
+            "game_list1":gaming_list1,
+            "game_list2":gaming_list2,
+            "game_list3":gaming_list3,
+        })
     return render(request, "tic.html",{
         "game_list1":gaming_list1,
         "game_list2":gaming_list2,
@@ -91,8 +99,7 @@ def win():
 
 def tie():
     game_list = gaming_list1+gaming_list2+gaming_list3
-    for i in game_list:
-        if i == ' ':
-            return False
     if win() == False:
-        return True
+        x = '-' in game_list
+        print(not x)
+        return not x

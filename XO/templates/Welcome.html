@@ -8,11 +8,11 @@
         {% csrf_token %}
         <div class="mb-3">
           <label for="Player_one" class="form-label">Player one </label>
-          <input type="text" class="form-control" name = "Player_one"id="Player_one" >
+          <input required type="text" class="form-control" name = "Player_one"id="Player_one" >
         </div>
         <div class="mb-3">
           <label for="Player_two" class="form-label">Player Two</label>
-          <input type="text" class="form-control" name = "Player_two"id="Player_two">
+          <input required type="text" class="form-control" name = "Player_two"id="Player_two">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
